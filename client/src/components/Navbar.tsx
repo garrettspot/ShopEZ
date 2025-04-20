@@ -18,7 +18,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/">
-              <div className="text-2xl font-bold text-primary cursor-pointer">ShopEase</div>
+              <div className="text-2xl font-bold text-primary cursor-pointer">ShopEZ</div>
             </Link>
           </div>
           
