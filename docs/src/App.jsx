@@ -14,7 +14,7 @@ import { ShopProvider } from "./context/ShopContext";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/ShopEZ" component={Home} />
       <Route path="/cart" component={Cart} />
       <Route path="/wishlist" component={Wishlist} />
       <Route component={NotFound} />
