@@ -40,13 +40,6 @@ If you prefer to deploy manually:
 3. Push to your repository
 4. Enable GitHub Pages in your repository settings
 
-### Custom Domain
-
-If you want to use a custom domain:
-
-1. Update the contents of the `docs/CNAME` file with your domain
-2. Configure your DNS settings as per GitHub's instructions
-
 ## Development
 
 To run this project locally:
