@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@replit/vite-plugin-shadcn-theme-json": "^0.0.4",
     "class-variance-authority": "^0.7.1",
     "drizzle-kit": "^0.31.0",
     "drizzle-zod": "^0.7.1",
