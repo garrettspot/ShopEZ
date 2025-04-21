@@ -22,7 +22,8 @@ function Router() {
   );
 }
 
-function App() {
+function App({base='/'
+}) {
   return (
     <QueryClientProvider client={queryClient}>
       <ShopProvider>
