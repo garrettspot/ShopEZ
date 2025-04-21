@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/">
+            <Link href="/ShopEZ">
               <div className="text-2xl font-bold text-primary cursor-pointer">ShopEZ</div>
             </Link>
           </div>

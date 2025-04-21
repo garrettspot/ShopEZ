@@ -38,7 +38,7 @@ export default function Navbar() {
           
           {/* Navigation Links */}
           <div className="flex items-center space-x-6">
-            <Link href="/">
+            <Link href="/ShopEZ">
               <div className={`flex items-center text-gray-700 hover:text-primary transition-colors cursor-pointer ${location === "/" ? "text-primary" : ""}`}>
                 <Home className="mr-1 h-4 w-4" />
                 <span>Home</span>
