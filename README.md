@@ -20,26 +20,6 @@ A modern shopping application with cart, wishlist functionality, and categorical
 - Context API for state management
 - Wouter for client-side routing
 
-## Deploying to GitHub Pages
-
-This project is configured to be hosted on GitHub Pages. The `docs` directory contains all the necessary files for GitHub Pages deployment.
-
-### Automatic Deployment
-
-1. Fork or clone this repository
-2. Push to your `main` branch
-3. GitHub Actions will automatically build and deploy the app to the `gh-pages` branch
-4. Go to your repository settings > Pages > and set the source to the `gh-pages` branch
-
-### Manual Deployment
-
-If you prefer to deploy manually:
-
-1. Run `npm run build` to create the production build
-2. Copy the contents of `dist/public` to your `docs` directory
-3. Push to your repository
-4. Enable GitHub Pages in your repository settings
-
 ## Development
 
 To run this project locally:
