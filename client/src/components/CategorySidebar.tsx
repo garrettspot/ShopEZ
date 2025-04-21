@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function CategorySidebar() {
   const { categories, activeCategory, setActiveCategory } = useShop();
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
   };
 

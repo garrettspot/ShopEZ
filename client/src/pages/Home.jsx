@@ -8,6 +8,7 @@ export default function Home() {
   const { filteredProducts, activeCategory } = useShop();
   const [sortBy, setSortBy] = useState("default");
   
+  // Sort products based on selection
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortBy) {
       case "price-low-high":
@@ -19,6 +20,7 @@ export default function Home() {
     }
   });
 
+  // Format category name for display
   const formatCategoryName = (category) => {
     return category === "all" ? "All Products" : category.charAt(0).toUpperCase() + category.slice(1);
   };

@@ -10,28 +10,34 @@ export const ShopProvider = ({ children }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   const { toast } = useToast();
 
+  // Fetch all products
   const { data: products = [] } = useQuery({
     queryKey: ["/api/products"],
   });
 
+  // Fetch cart items
   const { data: cartItems = [], refetch: refetchCart } = useQuery({
     queryKey: ["/api/cart"],
   });
 
+  // Fetch wishlist items
   const { data: wishlistItems = [], refetch: refetchWishlist } = useQuery({
     queryKey: ["/api/wishlist"],
   });
 
+  // Extract unique categories from products
   const categories = products && products.length > 0
     ? ["all", ...Array.from(new Set(products.map(product => product.category)))]
     : ["all"];
 
+  // Filter products based on search query and active category
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = activeCategory === "all" || product.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
 
+  // Add to cart mutation
   const addToCartMutation = useMutation({
     mutationFn: async (productId) => {
       return await apiRequest("POST", "/api/cart", { productId });
@@ -45,6 +51,7 @@ export const ShopProvider = ({ children }) => {
     },
   });
 
+  // Remove from cart mutation
   const removeFromCartMutation = useMutation({
     mutationFn: async (productId) => {
       return await apiRequest("DELETE", `/api/cart/${productId}`);
@@ -58,6 +65,7 @@ export const ShopProvider = ({ children }) => {
     },
   });
 
+  // Update cart quantity mutation
   const updateCartQuantityMutation = useMutation({
     mutationFn: async ({ productId, quantity }) => {
       return await apiRequest("PATCH", `/api/cart/${productId}`, { quantity });
@@ -67,6 +75,7 @@ export const ShopProvider = ({ children }) => {
     },
   });
 
+  // Add to wishlist mutation
   const addToWishlistMutation = useMutation({
     mutationFn: async (productId) => {
       return await apiRequest("POST", "/api/wishlist", { productId });
@@ -80,6 +89,7 @@ export const ShopProvider = ({ children }) => {
     },
   });
 
+  // Remove from wishlist mutation
   const removeFromWishlistMutation = useMutation({
     mutationFn: async (productId) => {
       return await apiRequest("DELETE", `/api/wishlist/${productId}`);
@@ -93,6 +103,7 @@ export const ShopProvider = ({ children }) => {
     },
   });
 
+  // Helper functions
   const addToCart = (productId) => {
     addToCartMutation.mutate(productId);
   };
@@ -133,6 +144,7 @@ export const ShopProvider = ({ children }) => {
     return wishlistItems.length;
   };
 
+  // Calculate cart total
   const cartTotal = cartItems.reduce((total, item) => {
     const product = products.find(p => p.id === item.productId);
     return total + (product ? product.price * item.quantity : 0);

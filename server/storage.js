@@ -1,5 +1,6 @@
 import { mockProducts } from "./mockData";
 
+// Class implementing in-memory storage
 export class MemStorage {
   constructor() {
     this.users = new Map();
@@ -10,6 +11,7 @@ export class MemStorage {
     this.currentCartItemId = 1;
     this.currentWishlistItemId = 1;
     
+    // Initialize with mock products
     this.initializeMockData();
   }
 
@@ -19,6 +21,7 @@ export class MemStorage {
     });
   }
 
+  // User operations
   async getUser(id) {
     return this.users.get(id);
   }
@@ -36,6 +39,7 @@ export class MemStorage {
     return user;
   }
   
+  // Product operations
   async getAllProducts() {
     return Array.from(this.products.values());
   }
@@ -44,6 +48,7 @@ export class MemStorage {
     return this.products.get(id);
   }
   
+  // Cart operations
   async getCartItems() {
     return Array.from(this.cartItems.values())
       .map(item => {
@@ -62,6 +67,7 @@ export class MemStorage {
 
   async addToCart(insertItem) {
     const id = this.currentCartItemId++;
+    // Ensure quantity is defined with a default value of 1
     const cartItem = { 
       ...insertItem, 
       id,
@@ -86,6 +92,7 @@ export class MemStorage {
     this.cartItems.delete(id);
   }
   
+  // Wishlist operations
   async getWishlistItems() {
     return Array.from(this.wishlistItems.values())
       .map(item => {
