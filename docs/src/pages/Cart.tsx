@@ -43,7 +43,7 @@ export default function Cart() {
                 </div>
                 <h2 className="text-xl font-medium text-gray-700 mb-2">Your cart is empty</h2>
                 <p className="text-gray-500 mb-6">Looks like you haven't added any products to your cart yet.</p>
-                <Link href="/">
+                <Link href="/ShopEZ">
                   <Button>Start Shopping</Button>
                 </Link>
               </CardContent>
@@ -83,7 +83,10 @@ export default function Cart() {
                   </div>
                 </div>
                 
-                <Button className="w-full">
+                <Button className="w-full" onClick={() => {
+                    mockCartItems.clear();
+                    window.location.reload();
+                  }}>
                   Proceed to Checkout
                 </Button>
                 
