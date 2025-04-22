@@ -12,6 +12,13 @@ Link: https://shop-ez.vercel.app/
 - 💳 Basic checkout process
 - 🔍 Product filtering by category and price range
 
+## APIs Used
+
+- `react-router-dom` - For routing and navigation
+- `localStorage` - For persistent cart and wishlist storage
+- `CustomEvent API` - For search event handling
+- `FakeStore API` - For getting mock products
+
 ## Tech Stack
 
 - React 19
@@ -23,7 +30,7 @@ Link: https://shop-ez.vercel.app/
 
 ```
 src/
-├── components/       # Reusable UI components
+├── components/      # Reusable UI components
 ├── hooks/           # Custom React hooks
 ├── pages/           # Page components
 └── main.jsx         # Application entry point
