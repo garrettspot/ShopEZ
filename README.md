@@ -1,39 +1,12 @@
-# ShopEZ
+# React + Vite
 
-A modern shopping application with cart, wishlist functionality, and categorical search using mock API data.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- Browse a catalog of products
-- Filter products by categories
-- Search for products by name
-- Add items to cart and wishlist
-- Adjust item quantities in cart
-- Mobile-responsive design
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Technologies Used
+## Expanding the ESLint configuration
 
-- React
-- Express
-- Tailwind CSS
-- shadcn/ui components
-- Context API for state management
-- Wouter for client-side routing
-
-## Screenshots
-![image](https://github.com/user-attachments/assets/994b96bb-08f7-4dc5-9919-09df05802b1b)
-![image](https://github.com/user-attachments/assets/99c75206-3cd7-40d3-81f5-458305d0f85d)
-![image](https://github.com/user-attachments/assets/41fb96a1-78a9-447b-a3db-c36ecb50ca8b)
-![image](https://github.com/user-attachments/assets/b2432b55-4ccf-4878-a7e2-3d615ea9382b)
-
-
-## Development
-
-To run this project locally:
-
-```bash
-npm install
-npm run dev
-```
-
-The application will be available at http://localhost:5000
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
