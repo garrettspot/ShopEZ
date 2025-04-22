@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { productsData } from '../../products';
 import ProductCard from '../components/ProductCard';
 
 export default function Products() {
@@ -9,12 +8,28 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1000);
-
-  const categories = ['All', ...new Set(productsData.map(product => product.category))];
+  const [categories, setCategories] = useState(['All']);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setProducts(productsData);
-    setFilteredProducts(productsData);
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const data = await response.json();
+        setProducts(data);
+        setFilteredProducts(data);
+        
+        // Extract unique categories
+        const uniqueCategories = ['All', ...new Set(data.map(product => product.category))];
+        setCategories(uniqueCategories);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
     
     // Listen for search events from header
     const handleSearch = (e) => setSearchQuery(e.detail);
@@ -26,7 +41,7 @@ export default function Products() {
     let result = products;
     if (searchQuery) {
       result = result.filter(product => 
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
@@ -38,6 +53,10 @@ export default function Products() {
     );
     setFilteredProducts(result);
   }, [searchQuery, selectedCategory, products, minPrice, maxPrice]);
+
+  if (isLoading) {
+    return <div className="text-center py-12">Loading products...</div>;
+  }
 
   return (
     <>
@@ -93,7 +112,13 @@ export default function Products() {
       {filteredProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard 
+              key={product.id} 
+              product={{
+                ...product,
+                name: product.title // Map title to name for compatibility
+              }} 
+            />
           ))}
         </div>
       ) : (

@@ -11,7 +11,7 @@ export default function ProductCard({ product, showMoveToCart }) {
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-contain bg-white p-4"
         />
         <button
           onClick={() => toggleWishlist(product)}
@@ -34,6 +34,12 @@ export default function ProductCard({ product, showMoveToCart }) {
         </span>
         <h3 className="mt-2 text-lg font-medium">{product.name}</h3>
         <p className="mt-1 text-gray-400 text-sm line-clamp-2">{product.description}</p>
+        <div className="mt-2 flex items-center text-sm">
+          <span className="text-yellow-400">★</span>
+          <span className="ml-1">{product.rating?.rate || 0}</span>
+          <span className="mx-1">•</span>
+          <span>{product.rating?.count || 0} reviews</span>
+        </div>
         <div className="mt-3 flex justify-between items-center">
           <span className="font-bold text-purple-400">${product.price}</span>
           <button
