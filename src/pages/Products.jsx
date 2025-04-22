@@ -10,6 +10,9 @@ export default function Products() {
   const [maxPrice, setMaxPrice] = useState(1000);
   const [categories, setCategories] = useState(['All']);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const itemsPerPage = 8;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -17,7 +20,8 @@ export default function Products() {
         const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
         setProducts(data);
-        setFilteredProducts(data);
+        setFilteredProducts(data.slice(0, itemsPerPage));
+        setHasMore(data.length > itemsPerPage);
         
         // Extract unique categories
         const uniqueCategories = ['All', ...new Set(data.map(product => product.category))];
@@ -51,8 +55,13 @@ export default function Products() {
     result = result.filter(product => 
       product.price >= minPrice && product.price <= maxPrice
     );
-    setFilteredProducts(result);
-  }, [searchQuery, selectedCategory, products, minPrice, maxPrice]);
+    setFilteredProducts(result.slice(0, currentPage * itemsPerPage));
+    setHasMore(result.length > currentPage * itemsPerPage);
+  }, [searchQuery, selectedCategory, products, minPrice, maxPrice, currentPage]);
+
+  const handleLoadMore = () => {
+    setCurrentPage(prev => prev + 1);
+  };
 
   if (isLoading) {
     return <div className="text-center py-12">Loading products...</div>;
@@ -110,17 +119,29 @@ export default function Products() {
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map(product => (
-            <ProductCard 
-              key={product.id} 
-              product={{
-                ...product,
-                name: product.title // Map title to name for compatibility
-              }} 
-            />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredProducts.map(product => (
+              <ProductCard 
+                key={product.id} 
+                product={{
+                  ...product,
+                  name: product.title // Map title to name for compatibility
+                }} 
+              />
+            ))}
+          </div>
+          {hasMore && (
+            <div className="text-center mt-8">
+              <button
+                onClick={handleLoadMore}
+                className="px-6 py-2 bg-purple-500 hover:bg-purple-600 rounded-md transition-colors"
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <div className="text-center py-12">
           <p className="text-lg">No products match your criteria. Try adjusting your filters.</p>
