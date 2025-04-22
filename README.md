@@ -1,6 +1,7 @@
 # ShopEZ
 
-A modern e-commerce web application built with React and Vite.
+A modern e-commerce web application built with React and Vite.  
+Link: https://shop-ez.vercel.app/
 
 ## Features
 
@@ -17,6 +18,23 @@ A modern e-commerce web application built with React and Vite.
 - React Router DOM 7
 - Tailwind CSS 4
 - Vite 6
+
+## Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── hooks/           # Custom React hooks
+├── pages/           # Page components
+└── main.jsx         # Application entry point
+```
+
+## Screenshots
+![image](https://github.com/user-attachments/assets/28608262-e645-4396-a51f-932be66ad850)
+![image](https://github.com/user-attachments/assets/be43f4a9-297e-451a-8e72-1d747e77f484)
+![image](https://github.com/user-attachments/assets/d8228427-807f-47be-9d19-d2f1dc014cd2)
+![image](https://github.com/user-attachments/assets/31790097-2bb4-472e-aca4-f1fa10cb2bfb)
+![image](https://github.com/user-attachments/assets/b9b1dabb-eb12-4c1f-8abd-f8c7307ce5cf)
 
 ## Getting Started
 
@@ -41,13 +59,4 @@ npm run dev
 npm run build
 ```
 
-## Project Structure
-
-```
-src/
-├── components/       # Reusable UI components
-├── hooks/           # Custom React hooks
-├── pages/           # Page components
-└── main.jsx         # Application entry point
-```
 
