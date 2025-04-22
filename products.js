@@ -1,0 +1,14 @@
+export const productsData = [
+  { id: 1, name: 'Wireless Headphones', price: 99.99, category: 'Electronics', image: 'https://www.leafstudios.in/cdn/shop/files/Mainupdated_35a234be-57a2-41b6-b8db-79b54b7f5a7f_800x.jpg?v=1690372991', description: 'High-quality wireless headphones with noise cancellation.' },
+  { id: 2, name: 'Smart Watch', price: 199.99, category: 'Electronics', image: 'https://cdn.mos.cms.futurecdn.net/qDiWC728ZbsZJuP34meocG-1200-80.jpg', description: 'Feature-rich smartwatch with fitness tracking.' },
+  { id: 3, name: 'Running Shoes', price: 79.99, category: 'Footwear', image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/01190add819e47c8a092653b9fd29bac_9366/Runfalcon_5_Running_Shoes_Black_IH7758_HM1.jpg', description: 'Comfortable running shoes with excellent support.' },
+  { id: 4, name: 'Yoga Mat', price: 29.99, category: 'Fitness', image: 'https://wiselife.in/cdn/shop/files/1_c32957ca-8b92-4e21-b32d-395717efbd7d.jpg?v=1708681826', description: 'Non-slip yoga mat for comfortable practice.' },
+  { id: 5, name: 'Coffee Maker', price: 149.99, category: 'Kitchen', image: 'https://m.media-amazon.com/images/I/818gyfjYmZL.jpg', description: 'Programmable coffee maker with timer.' },
+  { id: 6, name: 'Bluetooth Speaker', price: 59.99, category: 'Electronics', image: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MW443?wid=1720&hei=1338&fmt=jpeg&qlt=95&.v=1716251410589', description: 'Portable Bluetooth speaker with deep bass.' },
+  { id: 7, name: 'Casual Shirt', price: 34.99, category: 'Clothing', image: 'https://pictures.kartmax.in/live/sites/aPfvUDpPwMn1ZadNKhP7/product-images/8905745177197/660/HLSH013833_1.jpg', description: 'Comfortable casual shirt for everyday wear.' },
+  { id: 8, name: 'Jeans', price: 49.99, category: 'Clothing', image: 'https://assets.ajio.com/medias/sys_master/root/20240809/zVaK/66b5f1a81d763220fa6d0099/-473Wx593H-700275258-blue-MODEL.jpg', description: 'Classic fit denim jeans.' },
+  { id: 9, name: 'Blender', price: 69.99, category: 'Kitchen', image: 'https://images-cdn.ubuy.co.in/64ca0e4da858e121b25ce6f4-vevor-professional-blender-commercial.jpg', description: 'High-speed blender for smoothies and more.' },
+  { id: 10, name: 'Digital Camera', price: 399.99, category: 'Electronics', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3iHhYL24jLgOfSoukjlzY6yD8nom6vBW5MQ&s', description: 'High-resolution digital camera for photography enthusiasts.' },
+  { id: 11, name: 'Hiking Boots', price: 89.99, category: 'Footwear', image: 'https://m.media-amazon.com/images/I/81L6MkiyPlL._AC_UY1000_.jpg', description: 'Durable hiking boots for outdoor adventures.' },
+  { id: 12, name: 'Fitness Tracker', price: 79.99, category: 'Fitness', image: 'https://m.media-amazon.com/images/I/61YwaovfYFL.jpg', description: 'Track your steps, sleep, and more.' },
+];
