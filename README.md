@@ -19,6 +19,16 @@ Link: https://shop-ez.vercel.app/
 - Tailwind CSS 4
 - Vite 6
 
+## Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── hooks/           # Custom React hooks
+├── pages/           # Page components
+└── main.jsx         # Application entry point
+```
+
 ## Screenshots
 ![image](https://github.com/user-attachments/assets/28608262-e645-4396-a51f-932be66ad850)
 ![image](https://github.com/user-attachments/assets/be43f4a9-297e-451a-8e72-1d747e77f484)
@@ -49,13 +59,4 @@ npm run dev
 npm run build
 ```
 
-## Project Structure
-
-```
-src/
-├── components/       # Reusable UI components
-├── hooks/           # Custom React hooks
-├── pages/           # Page components
-└── main.jsx         # Application entry point
-```
 
